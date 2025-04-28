@@ -1,0 +1,350 @@
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Cadastro de Veículos</h1>
+    <form id="formVeiculo">
+        <div class="row g-3">
+            <div class="col-sm-6 col-md-4">
+                <label for="modelo" class="form-label">Modelo</label>
+                <input type="text" class="form-control" id="modelo" placeholder="Ex: Fusca">
+            </div>
+            <div class="col-sm-6 col-md-2">
+                <label for="ano" class="form-label">Ano/modelo</label>
+                <select class="form-select" id="ano">
+                    <option value="">Selecione</option>
+                </select>
+            </div>
+            <div class="col-sm-6 col-md-2">
+                <label for="preco" class="form-label">Preço</label>
+                <input type="number" class="form-control" id="preco" placeholder="Ex: 30000">
+            </div>
+
+            <div class="col-sm-6 col-md-2">
+                <label for="cor" class="form-label">Cor</label>
+                <input type="text" class="form-control" id="cor" placeholder="Ex: Amarelo">
+            </div>
+
+            <div class="col-sm-6 col-md-2">
+                <label for="quilometragem" class="form-label">Quilometragem</label>
+                <input type="number" class="form-control" id="quilometragem" placeholder="Ex: 50000">
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <label for="potencia" class="form-label">Potência</label>
+                <input type="number" class="form-control" id="potencia" placeholder="Ex: 50">
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <label for="motor" class="form-label">Motor</label>
+                <input type="text" class="form-control" id="motor" placeholder="Ex: 1.3">
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <label for="cambio" class="form-label">Câmbio</label>
+                <select class="form-select" id="cambio">
+                    <option value="">Selecione</option>
+                    <option value="Manual">Manual</option>
+                    <option value="Automático">Automático</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="direcao" class="form-label">Direção</label>
+                <select class="form-select" id="direcao">
+                    <option value="">Selecione</option>
+                    <option value="Hidráulica">Hidráulica</option>
+                    <option value="Elétrica">Elétrica</option>
+                    <option value="Mecânica">Mecânica</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="tracao" class="form-label">Tração</label>
+                <select class="form-select" id="tracao">
+                    <option value="">Selecione</option>
+                    <option value="Traseira">Traseira</option>
+                    <option value="Dianteira">Dianteira</option>
+                    <option value="Integral">Integral</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="categoriaId" class="form-label">Categoria</label>
+                <select class="form-select" id="categoriaId">
+                    <option value="">Selecione a Categoria</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="montadoraId" class="form-label">Montadora</label>
+                <select class="form-select" id="montadoraId">
+                    <option value="">Selecione a Montadora</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="avaliacao" class="form-label">Avaliação</label>
+                <input type="number" step="0.1" class="form-control" id="avaliacao" placeholder="Ex: 4.0">
+            </div>
+            <div class="col-md-6 d-flex align-items-end">
+                <div class="form-check me-4">
+                    <input type="checkbox" class="form-check-input" id="destaque">
+                    <label class="form-check-label" for="destaque">Destaque</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="disponivel" checked>
+                    <label class="form-check-label" for="disponivel">Disponível</label>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <label for="descricao" class="form-label">Descrição</label>
+                <textarea class="form-control" id="descricao" rows="3" placeholder="Ex: Clássico e icônico."></textarea>
+            </div>
+
+            <fieldset>
+                <label class="form-label">Carregue as fotos do seu veículo</label>
+                <div class="col-md-12" style="display: flex; flex-wrap: wrap;" id="imagensVeiculos">
+                    <label for="imagem" class="form-label" style="
+                        background-position: center;
+                        /* background-color: red; */
+                        background-image: url(https://www.svgrepo.com/show/309379/camera-add.svg);
+                        background-size: contain;
+                        /* background-position-x: center; */
+                        padding: 75px 50px 25px;
+                        background-repeat: round;
+                        display: initial;">
+                    </label>
+                    <input type="file" id="imagem" multiple style="display: none;">
+
+                </div>
+
+            </fieldset>
+
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+
+            <!-- Modal de Sucesso -->
+            <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-success text-white">
+                            <h5 class="modal-title">Sucesso!</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Veículo cadastrado com sucesso!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Erro -->
+            <div class="modal fade" id="errorModal" tabindex="-1" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title">Erro!</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Ocorreu um erro ao cadastrar o veículo. Por favor, tente novamente.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </form>
+</div>
+
+<style>
+    .modal {
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-dialog-centered {
+        min-height: calc(100% - 1rem);
+    }
+
+    @media (min-width: 576px) {
+        .modal-dialog-centered {
+            min-height: calc(100% - 3.5rem);
+        }
+    }
+</style>
+
+<script>
+    $(document).ready(() => {
+    // Função para carregar as categorias e montadoras nos selects
+    const carregarCategoriasEMontadoras = () => {
+        const categorias = [
+            { id: 1, nome: "Sedan" },
+            { id: 2, nome: "Hatch" },
+            { id: 3, nome: "Picape" },
+            { id: 4, nome: "Moto" },
+            { id: 5, nome: "Caminhonete" }
+        ];
+
+        const montadoras = [
+            { id: 1, nome: "Toyota" },
+            { id: 2, nome: "Ford" },
+            { id: 3, nome: "Volkswagen" },
+            { id: 4, nome: "Honda" },
+            { id: 5, nome: "Chevrolet" }
+        ];
+
+        const selectCategoria = $('#categoriaId');
+        const selectMontadora = $('#montadoraId');
+
+        // Preenche as opções das categorias
+        categorias.forEach(cat => {
+            selectCategoria.append(`<option value="${cat.id}">${cat.nome}</option>`);
+        });
+
+        // Preenche as opções das montadoras
+        montadoras.forEach(mont => {
+            selectMontadora.append(`<option value="${mont.id}">${mont.nome}</option>`);
+        });
+    };
+
+    // Chama a função para carregar as categorias e montadoras assim que o DOM estiver pronto
+    carregarCategoriasEMontadoras();
+
+    // **Função para enviar as imagens para o servidor
+    const uploadImagens = async (imagens) => {
+        try {
+            let formdata = new FormData();
+            formdata.append("file", imagens);
+
+            let requestOptions = {
+                method: 'POST',
+                body: formdata,
+                redirect: 'follow'
+            };
+
+            const response = await fetch("http://localhost:3037/upload", requestOptions);
+
+            if (!response.ok) {
+                throw new Error(`Erro no upload: ${response.statusText}`);
+            }
+
+            const result = await response.json();
+            return result;
+
+        } catch (error) {
+            console.error('Erro ao fazer upload:', error);
+            throw error; // Propaga o erro para quem chamar a função poder tratar também
+        }
+    };
+
+    // **Adiciona o evento de change(selecionar uma o mais imagens) ao elemento de imagem
+    $('#imagem').on('change', function (e) {
+        const files = e.target.files; // Pega os arquivos selecionados
+        const imagensVeiculos = $('#imagensVeiculos');
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            uploadImagens(file)
+                .then(result => {
+                    const imgElement = $('<img>')
+                        .attr('src', result.url) // Supondo que a resposta contenha a URL da imagem
+                        .addClass('img-thumbnail')
+                        .addClass('listaDeFotosVeiculos')
+                        .css({ width: '180px', margin: '5px' });
+                    imagensVeiculos.prepend(imgElement);
+                })
+                .catch(error => {
+                    console.error('Erro no upload:', error);
+                });
+        }
+    });
+
+    // **Função para gerar os anos de modelo para o select
+    const loadAnoModelo = () => {
+        const currentYear = new Date().getFullYear();
+        let ano_modelo = [];
+        for (let year = currentYear; year >= 1920; year--) {
+            ano_modelo.push(`<option value="${year} - ${year}">${year} - ${year}</option>`);
+            ano_modelo.push(`<option value="${year} - ${year + 1}">${year} - ${year + 1}</option>`);
+        }
+        return ano_modelo;
+    };
+    // Adiciona os anos de modelo gerados ao select
+    $("#ano").empty(); // Limpa o select antes de adicionar os novos anos
+    $("#ano").append(loadAnoModelo());
+
+    // **Para enviar os dados do formulário para a API de back-end
+    $('#formVeiculo').on('submit', function (e) {
+
+        e.preventDefault(); // Evita o envio padrão do formulário
+        let fotosSelecionadas = [];
+
+        // Pega todas as imagens selecionadas
+        $('.listaDeFotosVeiculos').each(function () {
+            fotosSelecionadas.push($(this).attr('src'));
+        });
+
+        // Pega todos os dados manualmente
+        const veiculo = {
+            modelo: $('#modelo').val(),
+            ano: parseInt($('#ano').val()),
+            preco: parseFloat($('#preco').val()),
+            descricao: $('#descricao').val(),
+            cor: $('#cor').val(),
+            quilometragem: parseInt($('#quilometragem').val()),
+            potencia: parseInt($('#potencia').val()),
+            motor: $('#motor').val(),
+            cambio: $('#cambio').val(),
+            direcao: $('#direcao').val(),
+            tracao: $('#tracao').val(),
+            categoriaId: parseInt($('#categoriaId').val()),
+            montadoraId: parseInt($('#montadoraId').val()),
+            avaliacao: parseFloat($('#avaliacao').val()),
+            destaque: $('#destaque').is(':checked'),
+            disponivel: $('#disponivel').is(':checked'),
+            imagem: fotosSelecionadas // Adiciona as imagens selecionadas
+        };
+
+        // Enviando os dados para a API de back-end
+        let myHeaders = new Headers();
+        myHeaders.append(
+            "Content-Type", "application/json"
+        );
+
+        let dados = JSON.stringify(veiculo);
+
+        let requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: dados,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:3000/veiculo", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                // Cria a instância do modal de sucesso
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+
+                // Mostra o modal
+                successModal.show();
+
+                // Configura o redirecionamento quando o modal for fechado
+                $('#successModal').on('hidden.bs.modal', function () {
+                    window.location.href = "/"; // Altere para sua página
+                });
+            })
+            .catch(error => {
+                console.log('error', error);
+                // Cria a instância do modal de erro
+                const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+
+                // Mostra o modal de erro
+                errorModal.show();
+            });
+    });
+});
+
+</script>
