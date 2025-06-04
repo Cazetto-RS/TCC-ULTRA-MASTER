@@ -1,14 +1,884 @@
+:root {
+    --verde: #7AB317;
+    --verde-escuro: #4d720e;
+    --verde-amarelado: #CEA80F;
+    --verde-amarelado-escuro: #9e810c;
+
+    --amarelo: #F0971C;
+    --amarelo-escuro: #b97516;
+    --amarelo-avermelhado: #CC3E18;
+    --amarelo-avermelhado-escuro: #922e12;
+
+    --vermelho: #C21B12;
+    --vermelho-escuro: #8b160f;
+
+    --azul: #11baac;
+    --azul-escuro: #0c9287;
+
+    --branco: #F6EEE0;
+    --cinza-claro: #5a5a5a;
+    --cinza: #373636;
+    --cinza-escuro: #151515;
+    --preto: #0B0B0B;
+
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title,
+.header,
+.heading {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    /* Peso semi-negrito para melhor contraste */
+    color: #F6EEE0;
+}
+
+/* --- Fontes Secundárias (Inter para textos menores) --- */
+body,
+p,
+a,
+li,
+input,
+button,
+.text,
+.paragraph {
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    /* Peso normal para legibilidade */
+    color: #F6EEE0;
+}
+
 body {
+    background-color: #151515;
+}
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* CSS PAGINA ERRO.HTML */
+.erro-esconder {
+
+    /* Container Principal */
+    .erro-container {
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+
+    /* Títulos */
+    .erro-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .erro-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .erro-caixa {
+        display: flex;
+        justify-content: center;
+        /* Centraliza horizontalmente */
+        align-items: center;
+        /* Centraliza verticalmente */
+        margin: 0;
+        /* Remove margens padrão */
+        text-align: center;
+    }
+
+    /* Código de Erro */
+    .erro-code {
+        font-size: 148px;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--cinza-escuro);
+        background-color: var(--branco);
+        width: 660px;
+        height: 350px;
+        text-align: center;
+        justify-content: center;
+
+        -webkit-box-shadow: 14px 14px 0px 0px rgba(11, 11, 11, 1);
+        -moz-box-shadow: 14px 14px 0px 0px rgba(11, 11, 11, 1);
+        box-shadow: 14px 14px 0px 0px rgba(11, 11, 11, 1);
+    }
+
+    .erro-code-text {
+        font-size: 148px;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--cinza-escuro);
+        background-color: var(--branco);
+        margin-top: 90px;
+    }
+
+    .erro-code2 {
+        display: flex;
+        /* Ativa flexbox */
+        align-items: center;
+        /* Centraliza verticalmente os itens */
+        gap: 10px;
+        /* Espaço entre os elementos (opcional) */
+
+        line-height: 1;
+        color: var(--cinza);
+        background-color: var(--cinza);
+        width: 660px;
+        height: 40px;
+
+        -webkit-box-shadow: 14px 14px 0px 0px rgba(11, 11, 11, 1);
+        -moz-box-shadow: 14px 14px 0px 0px rgba(11, 11, 11, 1);
+        box-shadow: 14px 14px 0px 0px rgba(11, 11, 11, 1);
+    }
+
+    .bola,
+    .bola2,
+    .bola3 {
+        display: inline-flex;
+        /* Alinha em linha */
+        width: 18px;
+        height: 18px;
+        border-radius: 100px;
+    }
+
+    /* Mensagens */
+    .erro-message {
+        margin-top: 40px;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    /* Botão */
+    .erro-button {
+        background-color: var(--verde);
+        color: white;
+        border: none;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .erro-button:hover {
+        background-color: #4d720e;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+
+
+        .erro-container {
+            padding: 1rem;
+            width: 95%;
+        }
+
+        .erro-title {
+            font-size: 1.5rem;
+        }
+
+        .erro-subtitle {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .erro-caixa {
+            width: 100%;
+        }
+
+        .erro-code,
+        .erro-code2 {
+            width: 100%;
+            max-width: 100%;
+            box-shadow: 7px 7px 0px 0px rgba(11, 11, 11, 1);
+        }
+
+        .erro-code {
+            width: 300px;
+            height: 350px;
+            font-size: 100px;
+            /* border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px; */
+        }
+
+        .erro-code2 {
+            width: 300px;
+            height: 40px;
+            font-size: 100px;
+            /* border-top-right-radius: 10px;
+          border-top-left-radius: 10px; */
+        }
+
+        .erro-code-text {
+            font-size: 100px;
+            margin-top: 120px;
+        }
+
+        .erro-message {
+            margin-top: 30px;
+            font-size: 1rem;
+        }
+
+        .erro-suggestion {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .erro-button {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+
+.home-esconde {
+
+    .home-container {
+        width: 100%;
+        min-height: 100dvh;
+        /* usa altura do viewport de forma mais moderna */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+
+    .home-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1300px;
+        gap: 40px;
+    }
+
+    .home-left {
+        flex: 1;
+    }
+
+    .home-right {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-title {
+        font-size: 148px;
+        font-weight: 700;
+        color: var(--branco);
+        margin: 0;
+        line-height: 1.1;
+    }
+
+    .home-subtitle {
+        font-size: 24px;
+        color: var(--branco);
+    }
+
+    .home-button {
+        background-color: var(--verde);
+        color: white;
+        border: none;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .home-button:hover {
+        background-color: #4d720e;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .home-logo {
+        width: 25%;
+    }
+
+    .home-plant-img {
+        width: 130%;
+    }
+
+    .home-logo-div {
+        margin-bottom: -10px;
+    }
+
+    .home-button-div {
+        margin-top: 30px;
+    }
+
+    /* 📱 MOBILE RESPONSIVO */
+    @media (max-width: 768px) {
+        .home-content {
+            flex-direction: column;
+        }
+
+        .home-title {
+            font-size: 60px;
+        }
+
+        .home-subtitle {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .home-logo {
+            width: 40%;
+            margin-bottom: 10px;
+        }
+
+        .home-plant-img {
+            display: none;
+        }
+
+        .home-button {
+            margin-top: -10px;
+        }
+    }
+}
+
+.plantas-container {
+    display: flex;
+    /* um do lado do outro */
+    align-items: center;
+    /* alinhar verticalmente */
+    width: fit-content;
+}
+
+.div-plantas-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plantas-imagem {
+    height: 41px;
+    background-color: var(--preto);
+    padding: 13px;
+    border-radius: 100px;
+}
+
+.plantas-info {
+    background-color: var(--preto);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    max-height: 100vh;
-  }
-  main {
-    flex: 1;
+    justify-content: center;
+    width: 300px;
+    height: 75px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 20px;
+    border-left: 3px solid var(--verde);
+    margin-left: 20px;
+    transition: all 0.5s;
+}
 
-  }
+.plantas-info:hover {
+    /* margin-left: 30px;
+  transition: all 0.5s; */
+    cursor: pointer;
+}
 
-  body, html {
-    overflow-x: hidden;
-  }
+.plantas-nome-usual {
+    font-size: 22px;
+    margin-top: 2px;
+    padding-bottom: 8px;
+
+    user-select: none;
+}
+
+.plantas-nome-cientifico {
+    margin-top: -15px;
+    font-size: 15px;
+    color: var(--cinza-claro) !important;
+    font-weight: bold;
+
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .plantas-container {
+        margin-top: 30px;
+        margin: 0 auto;
+        /* Centraliza horizontalmente */
+    }
+
+    .plantas-info:hover {
+        margin-left: 20px;
+    }
+
+    .plantas-info {
+        width: 350px;
+        height: 75px;
+    }
+}
+
+.modal-plantas-esconder {
+
+    /* Estilos base */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Overlay do modal */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    /* Container principal - DESKTOP */
+    .modal-plantas-container {
+        position: relative;
+        background-color: var(--preto);
+        width: 700px;
+        max-width: 100%;
+        height: 900px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        animation: modalFadeIn 0.3s ease-out;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+
+    /* Botão de fechar */
+    .modal-close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        color: var(--branco);
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-close-btn:hover {
+        background: var(--verde-escuro);
+    }
+
+    /* Cabeçalho */
+    .modal-plantas-cabecalho {
+        background: var(--verde);
+        width: 100%;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+    }
+
+    .modal-plantas-cabecalho-content {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+    }
+
+    .modal-plantas-icon-cabecalho {
+        width: 12%;
+        background-color: #222222;
+        padding: 15px;
+        border-radius: 50%;
+        object-fit: contain;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-plantas-info-cabecalho {
+        flex: 1;
+    }
+
+    .modal-plantas-nome-usual {
+        font-size: 28px;
+        margin: 0;
+        color: var(--branco);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .modal-plantas-nome-cientifico {
+        font-size: 16px;
+        color: var(--cinza);
+        font-weight: 500;
+        margin: 5px 0 0 0;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #4d720e;
+        width: fit-content;
+        font-style: italic;
+    }
+
+    /* Conteúdo */
+    .modal-plantas-conteudo {
+        padding: 25px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow-y: auto;
+    }
+
+    .modal-plantas-info-item {
+        background-color: var(--cinza-escuro);
+        padding: 18px 20px;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        /* border-bottom-style: solid;
+        border-bottom-width: 3px;
+        border-color: var(--verde-escuro); */
+    }
+
+    .modal-plantas-info-item:hover {
+        transform: translateX(5px);
+    }
+
+    .modal-plantas-info-titulo {
+        font-size: 18px;
+        color: var(--verde);
+        margin: 0 0 8px 0;
+        font-weight: 600;
+
+        user-select: none;
+    }
+
+    .modal-plantas-info-descricao {
+        font-size: 16px;
+        color: #e0e0e0;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    /* Dicas */
+    .modal-plantas-tips {
+        margin-top: 15px;
+    }
+
+    .modal-plantas-tips-titulo {
+        font-size: 20px;
+        color: var(--branco);
+        margin: 0 0 15px 0;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--verde-escuro);
+        width: fit-content;
+        font-weight: 600;
+
+        user-select: none;
+    }
+
+    .modal-plantas-tips-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .modal-plantas-tips-texto {
+        font-size: 14px;
+        color: var(--branco);
+        font-weight: 500;
+        margin: 0;
+        background-color: var(--verde);
+        padding: 8px 15px;
+        border-radius: 20px;
+        display: inline-block;
+        transition: all 0.3s ease;
+    }
+
+    .modal-plantas-tips-texto:hover {
+        background-color: var(--verde-escuro);
+        transform: translateY(-2px);
+    }
+
+    /* Animações */
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* VERSÃO MOBILE - Telas menores que 768px */
+    @media (max-width: 768px) {
+        .modal-plantas-container {
+            width: 95%;
+            max-width: 100%;
+            margin: 20px auto;
+        }
+
+        .modal-plantas-cabecalho {
+            height: 100px;
+            padding: 0 20px;
+        }
+
+        .modal-plantas-icon-cabecalho {
+            width: 60px;
+            height: 60px;
+            padding: 12px;
+        }
+
+        .modal-plantas-nome-usual {
+            font-size: 22px;
+        }
+
+        .modal-plantas-nome-cientifico {
+            font-size: 14px;
+        }
+
+        .modal-plantas-conteudo {
+            padding: 20px;
+            gap: 15px;
+        }
+
+        .modal-plantas-info-item {
+            padding: 15px;
+        }
+
+        .modal-plantas-info-titulo {
+            font-size: 16px;
+        }
+
+        .modal-plantas-info-descricao {
+            font-size: 14px;
+        }
+
+        .modal-plantas-tips-titulo {
+            font-size: 18px;
+        }
+
+        .modal-plantas-tips-texto {
+            font-size: 13px;
+            padding: 6px 12px;
+        }
+
+        .modal-close-btn {
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            font-size: 18px;
+        }
+    }
+
+    /* VERSÃO MOBILE PEQUENA - Telas menores que 480px */
+    /* @media (max-width: 480px) {
+        .modal-plantas-cabecalho {
+            flex-direction: column;
+            height: auto;
+            padding: 20px 15px;
+        }
+        
+        .modal-plantas-cabecalho-content {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+        
+        .modal-plantas-info-cabecalho {
+            text-align: center;
+        }
+        
+        .modal-plantas-nome-cientifico {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .modal-plantas-conteudo {
+            padding: 15px;
+        }
+        
+        .modal-plantas-tips-container {
+            flex-direction: column;
+        }
+    } */
+
+    .scrollview {
+        height: 300px;
+        overflow-y: scroll;
+        background-color: var(--cinza);
+        padding: 10px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--cinza) var(--cinza-escuro);
+        background-color: var(--cinza-escuro);
+    }
+
+    .scrollview::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scrollview::-webkit-scrollbar-track {
+        background: var(--cinza-escuro);
+    }
+
+    .scrollview::-webkit-scrollbar-thumb {
+        background-color: var(--cinza);
+        border-radius: 10px;
+    }
+
+}
+
+.perfil-esconder {
+    .perfil-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+.perfil-textos {
+    width: 600px;
+    padding: 20px;
+}
+
+.perfil-logo {
+    width: 10%;
+    margin-bottom: 30px;
+}
+
+.perfil-titulo {
+    font-size: 55px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    user-select: none;
+    color: var(--branco);
+}
+
+.perfil-subtitulo {
+    margin-top: -15px;
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 5px;
+    width: 100%;
+    color: var(--cinza-claro);
+    border-bottom: 1px solid var(--branco);
+    user-select: none;
+}
+
+.perfil-titulo-input {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--branco);
+    user-select: none;
+    margin-bottom: -5px;
+    display: block;
+}
+
+.perfil-inputs {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--cinza);
+    color: var(--branco);
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.perfil-inputs:focus {
+    outline: none;
+}
+
+.div-perfil-btn {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.perfil-btn,
+.perfil-btn-login {
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-bottom: -5px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.perfil-btn {
+    background-color: var(--cinza);
+    color: var(--branco);
+}
+
+.perfil-btn:hover {
+    background-color: var(--verde);
+    transition: all 0.2s;
+}
+
+.perfil-btn-login {
+    background-color: var(--verde);
+    color: var(--branco);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.perfil-btn-login:hover {
+    background-color: var(--cinza);
+    transition: all 0.2s;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .perfil-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .perfil-textos {
+        width: 100%;
+    }
+
+    .perfil-subtitulo {
+        width: 100%;
+    }
+}
+
+}

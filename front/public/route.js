@@ -8,16 +8,20 @@ const rotas = [
         'component': '/page/home.html'
     },
     {
+        'path': '/plantas',
+        'component': '/page/plantas/plantas.html'
+    },
+    {
         'path': '/teste',
         'component': '/page/teste.html'
     },
     {
-        'path': '/teste/teste',
-        'component': '/page/teste.html'
+        'path': '/cadastro',
+        'component': '/page/perfil/cadastro.html'
     },
     {
-        'path': '/veiculo/cadastro',
-        'component': '/page/veiculo/cadastro.html'
+        'path': '/login',
+        'component': '/page/perfil/login.html'
     }
 ];
 

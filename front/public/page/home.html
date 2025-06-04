@@ -1,113 +1,62 @@
-<div class="row row-cols-1 row-cols-md-2 justify-content-center" id="listaVeiculos">
-    <script>
-        $(document).ready(function () {
-            let requestOptions = {
-                method: 'GET',
-                redirect: 'follow'
-            };
+<!DOCTYPE html>
+<html lang="pt-br">
 
-            fetch("http://localhost:3000/veiculo", requestOptions)
-                .then(response => response.json())
-                .then(result => {
-                    console.log(result);
-                    result.forEach((veiculo, index) => {
-                        const descricaoCortada = veiculo.descricao.length > 50 ? veiculo.descricao.substring(0, 50) + '...' : veiculo.descricao;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Seja Bem-vindo!</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="shortcut icon" href="../assets/img/Favicon.png" type="png">
+</head>
 
-                        const card = `
-                        <div class="card m-3 veiculo-card" 
-                            style="max-width: 540px; cursor: pointer;"
-                            data-imagem='${JSON.stringify(veiculo.imagem)}'
-                            data-modelo="${veiculo.modelo} - ${veiculo.ano}"
-                            data-categoria="${veiculo.categoria}"
-                            data-preco="${veiculo.preco}"
-                            data-avaliacao="${veiculo.avaliacao}">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="${veiculo.imagem[0]}" class="img-fluid rounded-start" alt="${veiculo.modelo}">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">${veiculo.modelo} - ${veiculo.ano}</h5>
-                                        <p class="card-text">${descricaoCortada}</p>
-                                        <p class="card-text"><strong>Preço:</strong> R$ ${(veiculo.preco ? Number(veiculo.preco).toLocaleString() : 'Não informado')}</p>
-                                        <p class="card-text"><small class="text-body-secondary">Avaliação: ${veiculo.avaliacao} estrelas</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        `;
-                        $('#listaVeiculos').append(card);
-                    });
-                })
-                .catch(error => console.log('error', error));
-
-            $(document).on('click', '.veiculo-card', function () {
-                const imagens = JSON.parse($(this).attr('data-imagem')); // ← pega o array de imagens
-                const modelo = $(this).data('modelo');
-                const descricao = $(this).data('descricao');
-                const preco = $(this).data('preco');
-                const avaliacao = $(this).data('avaliacao');
-
-                $('#carouselInner').html(''); // limpa o conteúdo anterior do carousel
-
-                imagens.forEach((imgUrl, index) => {
-                    const activeClass = index === 0 ? 'active' : '';
-                    const slide = `
-                <div class="carousel-item ${activeClass}">
-                    <img src="${imgUrl}" class="d-block w-100" alt="Imagem do veículo">
-                </div>
-                `;
-                    $('#carouselInner').append(slide);
-                });
-
-                $('#modalModelo').text(modelo);
-                $('#modalDescricao').text(descricao);
-                $('#modalPreco').text(preco ? `R$ ${Number(preco).toLocaleString()}` : 'Não informado');
-                $('#modalAvaliacao').text(avaliacao);
-
-                var myModal = new bootstrap.Modal(document.getElementById('veiculoModal'));
-                myModal.show();
-            });
-
-        });
-    </script>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="veiculoModal" tabindex="-1" aria-labelledby="veiculoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="veiculoModalLabel">Detalhes do Veículo</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Carousel -->
-                <div id="carouselVeiculo" class="carousel slide mb-3" data-bs-ride="carousel">
-                    <div class="carousel-inner" id="carouselInner">
-                        <!-- As imagens serão adicionadas aqui dinamicamente -->
+<body>
+    <div class="home-esconde">
+        <div class="home-container">
+            <div class="home-content">
+                <div class="home-left">
+                    <div class="home-logo-div">
+                        <img src="../assets/img/Logo 1.png" alt="Logo Agrovision" class="home-logo">
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselVeiculo"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselVeiculo"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Próximo</span>
-                    </button>
+    
+                    <div class="home-title-div">
+                        <h1 class="home-title">
+                            Experimente<br>
+                            o futuro
+                        </h1>
+                    </div>
+    
+                    <div class="home-subtitle-div">
+                        <p class="home-subtitle">
+                            Descubra como a tecnologia de precisão está transformando a agricultura
+                            sustentável, unindo inovação, cuidado<br> ambiental e produtividade em um só projeto.
+                        </p>
+                    </div>
+    
+                    <div class="home-button-div">
+                        <button class="home-button">Vamos começar!</button>
+                    </div>
                 </div>
-
-                <!-- Informações do veículo -->
-                <h5 id="modalModelo"></h5>
-                <p id="modalDescricao"></p>
-                <p><strong>Preço:</strong> <span id="modalPreco"></span></p>
-                <p><small class="text-body-secondary">Avaliação: <span id="modalAvaliacao"></span> estrelas</small></p>
+    
+                <div class="home-right">
+                    <div class="home-plant-img-div">
+                        <img src="../assets/img/vaso.png" alt="Planta em vaso" class="home-plant-img">
+                    </div>
+                </div>
             </div>
         </div>
+    
+        <!-- <div class="home-container" style="flex-direction: column;">
+            <img src="../libs/components/Logo 2.png" alt="Logo Agrovision" class="home-logo" style="width: 10%;">
+    
+            <p style="margin-top: 5px;">Seja bem-vindo!</p>
+        </div> -->
     </div>
-</div>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../../assets/css/cadastro.css">
+
+    <style>
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.682);
+        }
+
+        .modal-conteudo {
+            background-color: #151515;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            color: #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.488);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-fechar {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-fechar:hover,
+        .modal-fechar:focus {
+            color: black;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="perfil-esconder">
+        <div class="perfil-container">
+            <div class="perfil-textos">
+                <img src="../../assets/img/Favicon.png" alt="Logo Agrovision" class="perfil-logo">
+                <h1 class="perfil-titulo">Login</h1>
+                <p class="perfil-subtitulo">Seja bem-vindo de volta!</p>
+
+                <!-- ✅ FORMULARIO CORRETO -->
+                <form id="form-login">
+                    <div class="div-perfil-inputs">
+                        <label for="email" class="perfil-titulo-input">E-mail ou Senha</label>
+                        <input type="email" class="perfil-inputs" id="identificador" required>
+                    </div>
+
+                    <div class="div-perfil-inputs">
+                        <label for="password" class="perfil-titulo-input">Senha</label>
+                        <input type="password" class="perfil-inputs" id="senha" required minlength="6">
+                    </div>
+
+                    <div class="div-perfil-btn">
+                        <button type="submit" class="perfil-btn" id="btn-login">Fazer Login</button>
+                        <a href="/cadastro" class="perfil-btn-login">Cadastrar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de erro -->
+    <div id="modal-login-erro" class="modal">
+        <div class="modal-conteudo">
+            <span class="modal-fechar" id="fechar-modal-login-erro">&times;</span>
+            <h2>Erro</h2>
+            <p>Usuário ou senha inválidos. Tente novamente.</p>
+        </div>
+    </div>
+
+    <!-- Modal de sucesso -->
+    <div id="modal-login-sucesso" class="modal">
+        <div class="modal-conteudo">
+            <span class="modal-fechar" id="fechar-modal-login-sucesso">&times;</span>
+            <h2>Bem-vindo!</h2>
+            <p>Login realizado com sucesso.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('btn-login').onclick = async function (e) {
+            e.preventDefault();
+
+            const identificador = document.getElementById('identificador').value.trim();
+            const senha = document.getElementById('senha').value;
+
+            try {
+                const response = await fetch("http://localhost:3000/usuario");
+                const usuarios = await response.json();
+
+                const usuarioEncontrado = usuarios.find(user =>
+                    (user.email === identificador || user.telefone === identificador) &&
+                    user.senha === senha
+                );
+
+                if (usuarioEncontrado) {
+                    document.getElementById('modal-login-sucesso').style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById('modal-login-sucesso').style.display = 'none';
+                        window.location.href = "/";
+                    }, 2000);
+                } else {
+                    document.getElementById('modal-login-erro').style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById('modal-login-erro').style.display = 'none';
+                    }, 3000);
+                }
+
+            } catch (error) {
+                console.error("Erro ao buscar usuários:", error);
+                alert("Erro ao conectar ao servidor.");
+            }
+        };
+    </script>
+</body>
+
+</html>

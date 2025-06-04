@@ -1,13 +1,13 @@
 {
-  "name": "api_loja_veiculo",
+  "name": "api_info_plantas",
   "version": "1.0.0",
-  "description": "Api via json-server para suporte a prototipagem da loja veículo",
+  "description": "Api para coleta e exibição de informações sobre plantas",
   "main": "db.json",
   "devDependencies": {},
   "scripts": {
     "start": "npx json-server db.json"
   },
-  "author": "Eliton Camargo de Oliveira",
+  "author": "RIN Corporation",
   "license": "ISC",
   "dependencies": {
     "json-server": "^1.0.0-beta.3"
