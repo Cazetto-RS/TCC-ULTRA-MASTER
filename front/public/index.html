@@ -12,31 +12,16 @@
 
 <body>
 
-    <!-- Menu Navbar -->
-    <header id="menu"></header>
-
-
     <!-- Conteúdo principal -->
     <main class="container-fluid py-4 overflow-auto" id="root">
         <!-- Conteúdo será carregado aqui via JavaScript -->
     </main>
 
-    <!-- Rodapé -->
-    <footer id="container-footer">
-        
-    </footer>
-
-    <!-- Bootstrap e ícones -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
  
     <script type="module">
         import { loadMenu } from '/components/menu/menu.js';
-        import { loadFooter } from '/components/footer/footer.js';
         import { loadPage } from '/route.js';
-        //import { loadTheme } from '/assets/js/alterar_tema.js';
 
 
             // Incluido arquivo com base na navegação
@@ -44,9 +29,6 @@
                 $('#root').html(html_page);
             });
     </script>
-
-
-<!-- <script src='/assets/js/alterar_tema.js'></script> -->
 
 </body>
 
