@@ -2,9 +2,9 @@
 // Função para carregar o menu a partir de um arquivo HTML
 import { loadJS } from '/assets/js/helpers.js';
 
-export const loadMenu = async (containerMenuId, tipo = 'default') => {
+export const loadMenu = async (containerMenuId) => {
     try {
-        const response = await fetch(`/components/menu/menu-${tipo}.html`);
+        const response = await fetch(`/components/menu/menu.html`);
         if (!response.ok) {
             throw new Error(`Erro ao carregar o footer: ${response.statusText}`);
         }

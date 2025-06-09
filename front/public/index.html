@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <header id="menu">
+
+    </header>
 
     <!-- Conteúdo principal -->
     <main class="container-fluid py-4 overflow-auto" id="root">
@@ -23,11 +26,13 @@
         import { loadMenu } from '/components/menu/menu.js';
         import { loadPage } from '/route.js';
 
+        loadMenu("menu");
+        // Incluido arquivo com base na navegação
+        loadPage((html_page)=> {
+            $('#root').html(html_page);
+        });
 
-            // Incluido arquivo com base na navegação
-            loadPage((html_page)=> {
-                $('#root').html(html_page);
-            });
+
     </script>
 
 </body>
