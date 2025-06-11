@@ -58,9 +58,9 @@
                             <h2 class="modal-plantas-tips-titulo" style="margin-bottom: 7px;">Descrição</h2>
                             <p class="modal-plantas-info-descricao" style="margin-left: 15px;" id="modalDescricao"></p>
                         </div>
-    
+
                         <h2 class="modal-plantas-tips-titulo" style="margin-bottom: -8px;">Informações</h2>
-    
+
                         <div class="modal-plantas-info-item">
                             <h2 class="modal-plantas-info-titulo">Família</h2>
                             <p class="modal-plantas-info-descricao" id="modalFamilia"></p>
@@ -142,6 +142,12 @@
 
             $('#modalCloseBtn').click(function () {
                 $('#plantModal').hide();
+            });
+
+            $('#plantModal').click(function (e) {
+                if (!$(e.target).closest('.modal-plantas-container').length) {
+                    $('#plantModal').hide();
+                }
             });
 
             $.get("http://localhost:3000/plantasInfo", function (plantas) {

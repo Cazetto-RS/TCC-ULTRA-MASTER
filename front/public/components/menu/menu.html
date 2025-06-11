@@ -21,30 +21,37 @@
         <span class="txt-link">Plantas</span>
       </a>
     </li>
+
+    <li class="item-menu">
+      <a href="/login">
+        <span class="icone"><i class="bi bi-person-fill"></i></span>
+        <span class="txt-link">Perfil</span>
+      </a>
+    </li>
   </ul>
 </nav>
 
-<!-- <script src="menuEfeitos.js" defer></script> -->
 <script>
-  var menuItem = document.querySelectorAll('.item-menu')
+  const menuItem = document.querySelectorAll('.item-menu');
+  const btnExp = document.querySelector('#btn-exp');
+  const menuSide = document.querySelector('.nav-lateral');
+  const btnExpandir = document.querySelector('.btn-expandir');
 
-  function selectLink(){
-      menuItem.forEach((item) =>
-          item.classList.remove('ativo')
-      )
-      this.classList.add('ativo')
-  }
+  // Expande/recolhe o menu
+  btnExp.addEventListener('click', function () {
+    menuSide.classList.toggle('expandir');
+    btnExpandir.classList.toggle('expandir');
+  });
 
-  menuItem.forEach((item)=>
-      item.addEventListener('click', selectLink)
-  )
+  // Define automaticamente o item ativo com base na URL
+  const currentPath = window.location.pathname;
 
-  //Menu expandir
-
-  var btnExp = document.querySelector('#btn-exp')
-  var menuSide = document.querySelector('.nav-lateral')
-
-  btnExp.addEventListener('click', function(){
-      menuSide.classList.toggle('expandir')
-  })
+  menuItem.forEach(item => {
+    const link = item.querySelector('a');
+    if (link && link.getAttribute('href') === currentPath) {
+      item.classList.add('ativo');
+    } else {
+      item.classList.remove('ativo');
+    }
+  });
 </script>

@@ -53,22 +53,23 @@ nav.nav-lateral.expandir {
 }
 
 .btn-expandir {
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  
+  z-index: 999;
+  margin-left: 0px;
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-bottom: 30px;
 
-  margin-left: 10px;
-  position: fixed;
-
-  z-index: 999999;
-  margin-left: 0px;
+  transition: margin-left 0.3s ease;
 }
 
-.btn-expandir.expandir{
-  background-color: #0c9287;
+.btn-expandir.expandir {
+  margin-left: 240px;
 }
 
 .btn-expandir > i {
