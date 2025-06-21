@@ -363,7 +363,7 @@ img {
     /* um do lado do outro */
     align-items: center;
     /* alinhar verticalmente */
-    width: fit-content;
+    /* width: fit-content; */
 }
 
 .div-plantas-imagem {
@@ -388,7 +388,7 @@ img {
     height: 75px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     border-left: 3px solid var(--verde);
     margin-left: 20px;
     transition: all 0.5s;
@@ -758,125 +758,129 @@ img {
 
 .perfil-esconder {
     .perfil-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    gap: 100px;
-    flex-wrap: wrap;
-}
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
 
-.perfil-textos {
-    width: 600px;
-    padding: 20px;
-}
-
-.perfil-logo {
-    width: 10%;
-    margin-bottom: 30px;
-}
-
-.perfil-titulo {
-    font-size: 55px;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    user-select: none;
-    color: var(--branco);
-}
-
-.perfil-subtitulo {
-    margin-top: -15px;
-    font-size: 20px;
-    font-weight: 600;
-    padding-bottom: 5px;
-    width: 100%;
-    color: var(--cinza-claro);
-    border-bottom: 1px solid var(--branco);
-    user-select: none;
-}
-
-.perfil-titulo-input {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--branco);
-    user-select: none;
-    margin-bottom: -5px;
-    display: block;
-}
-
-.perfil-inputs {
-    width: 100%;
-    padding: 10px;
-    margin-top: 8px;
-    border: none;
-    border-radius: 6px;
-    background-color: var(--cinza);
-    color: var(--branco);
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.perfil-inputs:focus {
-    outline: none;
-}
-
-.div-perfil-btn {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.perfil-btn,
-.perfil-btn-login {
-    padding: 10px 20px;
-    margin-top: 20px;
-    margin-bottom: -5px;
-    border-radius: 20px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.perfil-btn {
-    background-color: var(--cinza);
-    color: var(--branco);
-}
-
-.perfil-btn:hover {
-    background-color: var(--verde);
-    transition: all 0.2s;
-}
-
-.perfil-btn-login {
-    background-color: var(--verde);
-    color: var(--branco);
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-}
-
-.perfil-btn-login:hover {
-    background-color: var(--cinza);
-    transition: all 0.2s;
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
-    .perfil-container {
-        flex-direction: column;
-        gap: 30px;
-        padding: 20px;
+        overflow-x: hidden;
     }
 
     .perfil-textos {
-        width: 100%;
+        width: 600px;
+    }
+
+    .perfil-logo {
+        width: 10%;
+        margin-bottom: 30px;
+    }
+
+    .perfil-titulo {
+        font-size: 55px;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        user-select: none;
+        color: var(--branco);
     }
 
     .perfil-subtitulo {
+        margin-top: -15px;
+        font-size: 20px;
+        font-weight: 600;
+        padding-bottom: 5px;
         width: 100%;
+        color: var(--cinza-claro);
+        border-bottom: 1px solid var(--branco);
+        user-select: none;
     }
-}
+
+    .perfil-titulo-input {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--branco);
+        user-select: none;
+        margin-bottom: -5px;
+        display: block;
+    }
+
+    .perfil-inputs {
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        border: none;
+        border-radius: 6px;
+        background-color: var(--cinza);
+        color: var(--branco);
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .perfil-inputs:focus {
+        outline: none;
+    }
+
+    .div-perfil-btn {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .perfil-btn,
+    .perfil-btn-login {
+        padding: 10px 20px;
+        margin-top: 20px;
+        margin-bottom: -5px;
+        border-radius: 20px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .perfil-btn {
+        background-color: var(--cinza);
+        color: var(--branco);
+    }
+
+    .perfil-btn:hover {
+        background-color: var(--verde);
+        transition: all 0.2s;
+    }
+
+    .perfil-btn-login {
+        background-color: var(--verde);
+        color: var(--branco);
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .perfil-btn-login:hover {
+        background-color: var(--cinza);
+        transition: all 0.2s;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+        .perfil-container {
+            flex-direction: column;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .perfil-textos {
+            width: 100%;
+        }
+
+        .perfil-subtitulo {
+            width: 100%;
+        }
+
+        .perfil-logo {
+            width: 15%;
+            margin-bottom: 30px;
+        }
+    }
 
 }

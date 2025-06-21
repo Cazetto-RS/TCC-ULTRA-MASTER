@@ -73,7 +73,7 @@ nav.nav-lateral.expandir {
 }
 
 .btn-expandir > i {
-  color: #ffffff;
+  color: var(--branco);
   font-size: 28px;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -114,7 +114,7 @@ ul li.item-menu:hover {
 }
 
 ul li.item-menu a {
-  color: white;
+  color: var(--branco);
   text-decoration: none;
   font-size: 18px;
   padding: 16px 10px;
@@ -143,4 +143,11 @@ ul li.item-menu a .txt-link {
 nav.nav-lateral.expandir .txt-link {
   margin-left: 15px;
   opacity: 1;
+}
+
+.icone-logo{
+  width: 75%;
+  margin-bottom: 25px;
+  margin-top: -20px;
+  margin-left: 10px ;
 }
