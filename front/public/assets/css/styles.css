@@ -388,7 +388,7 @@ img {
     height: 75px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    /* padding-left: 20px; */
+    padding-left: 20px;
     border-left: 3px solid var(--verde);
     margin-left: 20px;
     transition: all 0.5s;
@@ -565,12 +565,21 @@ img {
     }
 
     .modal-plantas-info-item:hover {
-        transform: translateX(5px);
+        /* transform: translateX(5px); */
     }
 
     .modal-plantas-info-titulo {
         font-size: 18px;
         color: var(--verde);
+        margin: 0 0 8px 0;
+        font-weight: 600;
+
+        user-select: none;
+    }
+
+    .modal-plantas-info-titulo-grafico {
+        font-size: 18px;
+        color: var(--branco);
         margin: 0 0 8px 0;
         font-weight: 600;
 
@@ -734,10 +743,10 @@ img {
     .scrollview {
         height: 300px;
         overflow-y: scroll;
-        background-color: var(--cinza);
+        background-color: var(--preto);
         padding: 10px;
         scrollbar-width: thin;
-        scrollbar-color: var(--cinza) var(--cinza-escuro);
+        scrollbar-color: var(--cinza) var(--preto);
         background-color: var(--cinza-escuro);
     }
 
@@ -883,4 +892,163 @@ img {
         }
     }
 
+}
+
+.P-esconder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+
+    flex-direction: column;
+}
+
+.enfeite {
+    width: 895px;
+    height: 100px;
+    background-color: var(--azul-escuro);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.Pdiv {
+    width: 895px;
+    background-color: var(--preto);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: relative;
+    /* Importante para o posicionamento da imagem */
+    padding-top: 60px;
+    /* Dá espaço para o conteúdo abaixo da imagem */
+    padding-bottom: 30px;
+}
+
+.fotoperfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 7px solid var(--preto);
+    z-index: 10;
+
+    position: absolute;
+    top: -60px;
+    /* Sobe metade da altura da imagem */
+    left: 30px;
+    /* Fixa à esquerda, como estava antes */
+    z-index: 10;
+}
+
+.fotoP {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    /* transition: all linear 0.2s; */
+}
+
+.fotoP:hover {
+  filter: brightness(50%); /* Deixa 15% mais escuro */
+
+  cursor: pointer;
+}
+
+.icone-editar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 8px;
+  font-size: 30px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* evita bloquear clique na imagem */
+}
+
+.fotoperfil:hover .icone-editar {
+  opacity: 1;
+}
+
+.infomarcoes {
+    margin-top: 20px;
+    background-color: var(--cinza-escuro);
+    border-radius: 10px;
+    margin-left: 17px;
+    margin-right: 17px;
+    padding: 25px 30px;
+    color: var(--branco);
+    font-size: 15px;
+
+}
+
+.tituloP {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 2px;
+    margin-left: 100px;
+}
+
+.conteudoP {
+    margin-left: 100px;
+    font-size: 15px;
+    color: var(--branco);
+}
+
+.campo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.campo label {
+    font-weight: bold;
+}
+
+.campo span {
+    margin-top: 4px;
+    display: block;
+}
+
+.btn-edit {
+    background-color: var(--preto);
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.logout {
+    display: flex;
+    column-gap: 10px;
+
+    transition: all linear 0.1s;
+}
+
+.logout:hover {
+    column-gap: 15px;
+    cursor: pointer;
+}
+
+.iconLogout {
+    font-size: 20px;
+}
+
+.btn-edit:hover {
+    background-color: var(--cinza);
+}
+
+@media (max-width: 900px) {
+
+    .Pdiv,
+    .enfeite {
+        width: 95%;
+    }
 }

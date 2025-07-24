@@ -8,6 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="shortcut icon" href="../../assets/img/Favicon.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../components/menu/charts/plantCharts.js"></script>
+    <script src="../../components/menu/charts/telacheiaCharts.js"></script>
     <style>
         /* Apenas o necessário para o layout responsivo */
         .plantas-grid {
@@ -99,9 +102,28 @@
                                 <!-- Dicas serão inseridas aqui via JavaScript -->
                             </div>
                         </div>
+
+                        <h2 class="modal-plantas-tips-titulo" style="margin-bottom: -8px;">Gráficos</h2>
+
+                        <div class="modal-plantas-info-item">
+                            <h2 class="modal-plantas-info-titulo-grafico">Gráfico de Temperatura</h2>
+                            <canvas id="graficoTemperatura" width="400" height="200"></canvas>
+                        </div>
+
+                        <div class="modal-plantas-info-item">
+                            <h2 class="modal-plantas-info-titulo-grafico">Gráfico de Umidade</h2>
+                            <canvas id="graficoUmidade" width="400" height="200"></canvas>
+                        </div>
+
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div id="fullscreenChartContainer"
+            style="display: none; position: fixed; top: 0; left: 0;
+  width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;">
+            <canvas id="fullscreenChart" width="800" height="500"></canvas>
         </div>
     </div>
 
@@ -138,6 +160,18 @@
                 });
 
                 $('#plantModal').show();
+
+                // Destroi gráficos anteriores, se existirem (evita sobreposição no Chart.js)
+                if (window.chartTemperatura) window.chartTemperatura.destroy();
+                if (window.chartUmidade) window.chartUmidade.destroy();
+
+                // Cria os novos gráficos com os dados da planta
+                const ctxTemp = document.getElementById('graficoTemperatura').getContext('2d');
+                const ctxUmi = document.getElementById('graficoUmidade').getContext('2d');
+
+                window.chartTemperatura = renderGraficoTemperatura(ctxTemp, planta.dadosTemperatura || []);
+                window.chartUmidade = renderGraficoUmidade(ctxUmi, planta.dadosUmidade || []);
+                
             }
 
             $('#modalCloseBtn').click(function () {

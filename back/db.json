@@ -33,7 +33,21 @@
       "clima": "Tropical e subtropical",
       "altura_media": "60 cm",
       "tempo_de_cultivo": "8 a 12 meses para uso medicinal",
-      "floracao": "Primavera"
+      "floracao": "Primavera",
+      "dadosUmidade": [
+        25,
+        44,
+        30,
+        36,
+        47
+      ],
+      "dadosTemperatura": [
+        20,
+        21,
+        19,
+        17,
+        20
+      ]
     },
     {
       "id": "2",
