@@ -22,6 +22,10 @@ const rotas = [
     {
         'path': '/login',
         'component': '/page/perfil/login.html'
+    },
+    {
+        'path': '/perfil',
+        'component': '/page/perfil/perfil.html'
     }
 ];
 

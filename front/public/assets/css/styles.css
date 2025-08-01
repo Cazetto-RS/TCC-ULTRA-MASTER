@@ -906,7 +906,7 @@ img {
 .enfeite {
     width: 895px;
     height: 100px;
-    background-color: var(--azul-escuro);
+    background-color: var(--verde);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
