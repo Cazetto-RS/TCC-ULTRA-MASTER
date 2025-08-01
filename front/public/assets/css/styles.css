@@ -249,54 +249,70 @@ img {
 
 
 .home-esconde {
-
-    .home-container {
+    .home-page {
+        overflow: hidden;
+    }
+    
+    /* COMPONENTE HOME */
+    .home {
         width: 100%;
         min-height: 100dvh;
-        /* usa altura do viewport de forma mais moderna */
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 2rem;
         box-sizing: border-box;
     }
-
-    .home-content {
+    
+    .home__container {
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+    
+    .home__content {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
-        max-width: 1300px;
         gap: 40px;
     }
-
-    .home-left {
+    
+    .home__info {
         flex: 1;
     }
-
-    .home-right {
+    
+    .home__visual {
         flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 0;
     }
-
-    .home-title {
-        font-size: 148px;
+    
+    .home__logo {
+        width: 25%;
+        max-width: 200px;
+        height: auto;
+        margin-bottom: -10px;
+    }
+    
+    .home__title {
+        font-size: clamp(3.75rem, 10vw, 9.25rem); /* Técnica de fluid typography */
         font-weight: 700;
         color: var(--branco);
         margin: 0;
         line-height: 1.1;
     }
-
-    .home-subtitle {
-        font-size: 24px;
+    
+    .home__description {
+        font-size: 1.5rem;
         color: var(--branco);
+        line-height: 1.4;
     }
-
-    .home-button {
+    
+    .home__cta {
         background-color: var(--verde);
-        color: white;
+        color: var(--branco);
         border: none;
         padding: 0.75rem 2rem;
         font-size: 1rem;
@@ -304,58 +320,95 @@ img {
         border-radius: 50px;
         cursor: pointer;
         transition: all 0.3s ease;
-    }
-
-    .home-button:hover {
-        background-color: #4d720e;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .home-logo {
-        width: 25%;
-    }
-
-    .home-plant-img {
-        width: 130%;
-    }
-
-    .home-logo-div {
-        margin-bottom: -10px;
-    }
-
-    .home-button-div {
         margin-top: 30px;
     }
-
-    /* 📱 MOBILE RESPONSIVO */
+    
+    .home__cta:hover,
+    .home__cta:focus {
+        background-color: var(--verde-escuro);
+        transform: translateY(-2px);
+        box-shadow: var(--sombra);
+    }
+    
+    .home__plant {
+        width: 130%;
+        max-width: 600px;
+        height: auto;
+    }
+    
+    /* RESPONSIVIDADE */
     @media (max-width: 768px) {
-        .home-content {
+
+        .home__content {
             flex-direction: column;
+            text-align: start;
         }
-
-        .home-title {
-            font-size: 60px;
-        }
-
-        .home-subtitle {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-
-        .home-logo {
+    
+        .home__logo {
             width: 40%;
-            margin-bottom: 10px;
+            margin: -10 auto 10px;
         }
-
-        .home-plant-img {
+    
+        .home__title {
+            font-size: 3.75rem;
+            text-align: center;
+        }
+    
+        .home__description {
+            font-size: 1.125rem;
+            margin-top: 10px;
+            text-align: center;
+        }
+    
+        .home__cta {
+            margin: 10px auto 0;
+            display: flex;
+        }
+    
+        .home__plant {
             display: none;
         }
+    }
 
-        .home-button {
-            margin-top: -10px;
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .container {
+            padding: 30px;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+        }
+    
+        .logo {
+            width: 100px;
+            left: 30px;
+            bottom: 30px;
+        }
+    
+        h1 {
+            font-size: 3.5rem;
+            margin-top: -40px; /* Compensa o logo */
+            line-height: 1.2;
+        }
+    
+        .content {
+            flex: 1;
+            padding-bottom: 80px; /* Espaço para o logo */
+        }
+    
+        .image-container {
+            flex: 1;
+            display: block !important; /* Garante que a imagem aparece */
+        }
+    
+        .image-container img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-left: auto;
         }
     }
+
+    
 }
 
 .plantas-container {

@@ -1,62 +1,81 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Seja Bem-vindo!</title>
+    <meta name="description" content="Agrovision - Tecnologia de precisão transformando a agricultura sustentável">
+    <title>Home - Seja Bem-vindo! | Agrovision</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="shortcut icon" href="../assets/img/Favicon.png" type="png">
+    <link rel="shortcut icon" href="../assets/img/Favicon.png" type="image/png">
+    <link rel="preload" href="../assets/img/vaso.png" as="image">
 </head>
 
-<body>
+<style>
+    /* Desativa qualquer tipo de rolagem na página */
+    html,
+    body {
+        overflow: hidden !important;
+        /* Remove scroll vertical e horizontal */
+        height: 100% !important;
+        /* Garante que o body não ultrapasse a viewport */
+        width: 100% !important;
+        overscroll-behavior: none;
+        /* Bloqueia gestos de overscroll em mobile */
+        touch-action: none;
+        /* Bloqueia gestos de toque */
+        position: fixed;
+        /* Impede o movimento da página */
+    }
+
+    /* Remove overscroll para navegadores que suportam */
+    body {
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
+    }
+</style>
+
+<body class="home-page">
     <div class="home-esconde">
-        <div class="home-container">
-            <div class="home-content">
-                <div class="home-left">
-                    <div class="home-logo-div">
-                        <img src="../assets/img/Logo 1.png" alt="Logo Agrovision" class="home-logo">
-                    </div>
-    
-                    <div class="home-title-div">
-                        <h1 class="home-title">
+        <main class="home">
+            <div class="home__container">
+                <div class="home__content">
+                    <section class="home__info">
+                        <div class="home__branding">
+                            <img src="../assets/img/Logo 1.png" alt="Agrovision" class="home__logo" width="200"
+                                height="80">
+                        </div>
+
+                        <h1 class="home__title">
                             Experimente<br>
                             o futuro
                         </h1>
-                    </div>
-    
-                    <div class="home-subtitle-div">
-                        <p class="home-subtitle">
+
+                        <p class="home__description">
                             Descubra como a tecnologia de precisão está transformando a agricultura
-                            sustentável, unindo inovação, cuidado<br> ambiental e produtividade em um só projeto.
+                            sustentável, unindo inovação, cuidado ambiental e produtividade em um só projeto.
                         </p>
-                    </div>
-    
-                    <div class="home-button-div">
-                        <button class="home-button">Vamos começar!</button>
-                    </div>
-                </div>
-    
-                <div class="home-right">
-                    <div class="home-plant-img-div">
-                        <img src="../assets/img/vaso.png" alt="Planta em vaso" class="home-plant-img">
-                    </div>
+
+                        <button class="home__cta" aria-label="Iniciar experiência com a Agrovision" onclick="location.href = '/plantas'">
+                            Vamos começar!
+                        </button>
+                    </section>
+
+                    <figure class="home__visual">
+                        <img src="../assets/img/vaso.png" alt="Planta em vaso demonstrando tecnologia agrícola"
+                            class="home__plant" width="600" height="600">
+                    </figure>
                 </div>
             </div>
-        </div>
-    
-        <!-- <div class="home-container" style="flex-direction: column;">
-            <img src="../libs/components/Logo 2.png" alt="Logo Agrovision" class="home-logo" style="width: 10%;">
-    
-            <p style="margin-top: 5px;">Seja bem-vindo!</p>
-        </div> -->
+        </main>
     </div>
-
-    <style>
-        body {
-            overflow: hidden;
-        }
-    </style>
 </body>
 
 </html>
