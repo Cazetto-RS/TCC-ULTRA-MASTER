@@ -171,7 +171,7 @@
 
                 window.chartTemperatura = renderGraficoTemperatura(ctxTemp, planta.dadosTemperatura || []);
                 window.chartUmidade = renderGraficoUmidade(ctxUmi, planta.dadosUmidade || []);
-                
+
             }
 
             $('#modalCloseBtn').click(function () {
@@ -190,6 +190,7 @@
 
                 plantas.forEach(function (planta) {
                     const plantaHTML = `
+                    <div class="plantas-esconder">                    
                         <div class="plantas-container" data-id="${planta.id}">
                             <div class="div-plantas-imagem">
                                 <img src="../../assets/img/Favicon.png" 
@@ -202,6 +203,7 @@
                                 </p>
                             </div>
                         </div>
+                    </div>
                     `;
                     $('#listaPlantas').append(plantaHTML);
                 });

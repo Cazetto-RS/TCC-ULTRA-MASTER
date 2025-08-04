@@ -252,7 +252,7 @@ img {
     .home-page {
         overflow: hidden;
     }
-    
+
     /* COMPONENTE HOME */
     .home {
         width: 100%;
@@ -263,24 +263,24 @@ img {
         padding: 2rem;
         box-sizing: border-box;
     }
-    
+
     .home__container {
         width: 100%;
         max-width: 1300px;
         margin: 0 auto;
     }
-    
+
     .home__content {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 40px;
     }
-    
+
     .home__info {
         flex: 1;
     }
-    
+
     .home__visual {
         flex: 1;
         display: flex;
@@ -288,28 +288,29 @@ img {
         align-items: center;
         margin: 0;
     }
-    
+
     .home__logo {
         width: 25%;
         max-width: 200px;
         height: auto;
         margin-bottom: -10px;
     }
-    
+
     .home__title {
-        font-size: clamp(3.75rem, 10vw, 9.25rem); /* Técnica de fluid typography */
+        font-size: clamp(3.75rem, 10vw, 9.25rem);
+        /* Técnica de fluid typography */
         font-weight: 700;
         color: var(--branco);
         margin: 0;
         line-height: 1.1;
     }
-    
+
     .home__description {
         font-size: 1.5rem;
         color: var(--branco);
         line-height: 1.4;
     }
-    
+
     .home__cta {
         background-color: var(--verde);
         color: var(--branco);
@@ -322,20 +323,20 @@ img {
         transition: all 0.3s ease;
         margin-top: 30px;
     }
-    
+
     .home__cta:hover,
     .home__cta:focus {
         background-color: var(--verde-escuro);
         transform: translateY(-2px);
         box-shadow: var(--sombra);
     }
-    
+
     .home__plant {
         width: 130%;
         max-width: 600px;
         height: auto;
     }
-    
+
     /* RESPONSIVIDADE */
     @media (max-width: 768px) {
 
@@ -343,28 +344,29 @@ img {
             flex-direction: column;
             text-align: start;
         }
-    
+
         .home__logo {
             width: 40%;
             margin: -10 auto 10px;
+            margin-left: 5px;
         }
-    
+
         .home__title {
             font-size: 3.75rem;
             text-align: center;
         }
-    
+
         .home__description {
             font-size: 1.125rem;
             margin-top: 10px;
             text-align: center;
         }
-    
+
         .home__cta {
             margin: 10px auto 0;
             display: flex;
         }
-    
+
         .home__plant {
             display: none;
         }
@@ -377,29 +379,32 @@ img {
             align-items: center;
             gap: 40px;
         }
-    
+
         .logo {
             width: 100px;
             left: 30px;
             bottom: 30px;
         }
-    
+
         h1 {
             font-size: 3.5rem;
-            margin-top: -40px; /* Compensa o logo */
+            margin-top: -40px;
+            /* Compensa o logo */
             line-height: 1.2;
         }
-    
+
         .content {
             flex: 1;
-            padding-bottom: 80px; /* Espaço para o logo */
+            padding-bottom: 80px;
+            /* Espaço para o logo */
         }
-    
+
         .image-container {
             flex: 1;
-            display: block !important; /* Garante que a imagem aparece */
+            display: block !important;
+            /* Garante que a imagem aparece */
         }
-    
+
         .image-container img {
             width: 100%;
             max-width: 400px;
@@ -408,84 +413,83 @@ img {
         }
     }
 
-    
+
 }
 
-.plantas-container {
-    display: flex;
-    /* um do lado do outro */
-    align-items: center;
-    /* alinhar verticalmente */
-    /* width: fit-content; */
-}
-
-.div-plantas-imagem {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.plantas-imagem {
-    height: 41px;
-    background-color: var(--preto);
-    padding: 13px;
-    border-radius: 100px;
-}
-
-.plantas-info {
-    background-color: var(--preto);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 300px;
-    height: 75px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding-left: 20px;
-    border-left: 3px solid var(--verde);
-    margin-left: 20px;
-    transition: all 0.5s;
-}
-
-.plantas-info:hover {
-    /* margin-left: 30px;
-  transition: all 0.5s; */
-    cursor: pointer;
-}
-
-.plantas-nome-usual {
-    font-size: 22px;
-    margin-top: 2px;
-    padding-bottom: 8px;
-
-    user-select: none;
-}
-
-.plantas-nome-cientifico {
-    margin-top: -15px;
-    font-size: 15px;
-    color: var(--cinza-claro) !important;
-    font-weight: bold;
-
-    user-select: none;
-}
-
-@media (max-width: 768px) {
+.plantas-esconder {
     .plantas-container {
-        margin-top: 30px;
-        margin: 0 auto;
-        /* Centraliza horizontalmente */
+        display: flex;
+        /* um do lado do outro */
+        align-items: center;
+        /* alinhar verticalmente */
+        /* width: fit-content; */
     }
 
-    .plantas-info:hover {
-        margin-left: 20px;
+    .div-plantas-imagem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .plantas-imagem {
+        height: 41px;
+        background-color: var(--preto);
+        padding: 13px;
+        border-radius: 100px;
     }
 
     .plantas-info {
-        width: 350px;
+        background-color: var(--preto);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 300px;
         height: 75px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding-left: 20px;
+        border-left: 3px solid var(--verde);
+        margin-left: 20px;
+        transition: all 0.5s;
+    }
+
+    .plantas-info:hover {
+        /* margin-left: 30px;
+      transition: all 0.5s; */
+        cursor: pointer;
+    }
+
+    .plantas-nome-usual {
+        font-size: 22px;
+        margin-top: 2px;
+        padding-bottom: 8px;
+
+        user-select: none;
+    }
+
+    .plantas-nome-cientifico {
+        margin-top: -15px;
+        font-size: 15px;
+        color: var(--cinza-claro) !important;
+        font-weight: bold;
+
+        user-select: none;
+    }
+
+    @media (max-width: 768px) {
+        .plantas-container {
+            margin-top: 30px;
+            margin: 0 auto;
+            justify-content: center;
+            /* Centraliza horizontalmente */
+        }
+
+        .plantas-info {
+            margin-left: 20px;
+        }
     }
 }
+
 
 .modal-plantas-esconder {
 
@@ -702,9 +706,11 @@ img {
     /* VERSÃO MOBILE - Telas menores que 768px */
     @media (max-width: 768px) {
         .modal-plantas-container {
-            width: 95%;
+            width: 100%;
+            height: 100%;
             max-width: 100%;
-            margin: 20px auto;
+            border-radius: 0px;
+            /* margin: 20px auto; */
         }
 
         .modal-plantas-cabecalho {
@@ -752,6 +758,11 @@ img {
             padding: 6px 12px;
         }
 
+        .modal-plantas-tips-texto:hover {
+            background-color: var(--verde);
+            transform: translateY(0px);
+        }
+
         .modal-close-btn {
             top: 10px;
             right: 10px;
@@ -759,39 +770,12 @@ img {
             height: 35px;
             font-size: 18px;
         }
+
     }
 
-    /* VERSÃO MOBILE PEQUENA - Telas menores que 480px */
-    /* @media (max-width: 480px) {
-        .modal-plantas-cabecalho {
-            flex-direction: column;
-            height: auto;
-            padding: 20px 15px;
-        }
-        
-        .modal-plantas-cabecalho-content {
-            flex-direction: column;
-            text-align: center;
-            gap: 15px;
-        }
-        
-        .modal-plantas-info-cabecalho {
-            text-align: center;
-        }
-        
-        .modal-plantas-nome-cientifico {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .modal-plantas-conteudo {
-            padding: 15px;
-        }
-        
-        .modal-plantas-tips-container {
-            flex-direction: column;
-        }
-    } */
+    @media (max-width: 1366px) {
+        body {}
+    }
 
     .scrollview {
         height: 300px;
@@ -819,23 +803,28 @@ img {
 }
 
 .perfil-esconder {
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .perfil-container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         width: 100vw;
-
         overflow-x: hidden;
     }
 
     .perfil-textos {
-        width: 600px;
+        width: 450px;
+        margin: 0 auto; /* <=== Centraliza horizontalmente */
     }
 
     .perfil-logo {
         width: 10%;
-        margin-bottom: 30px;
     }
 
     .perfil-titulo {
@@ -849,7 +838,7 @@ img {
     .perfil-subtitulo {
         margin-top: -15px;
         font-size: 20px;
-        font-weight: 600;
+        font-weight: 400;
         padding-bottom: 5px;
         width: 100%;
         color: var(--cinza-claro);
@@ -868,11 +857,11 @@ img {
     }
 
     .perfil-inputs {
-        width: 100%;
+        width: 100%; /* Agora ocupa 100% do pai */
         padding: 10px;
         margin-top: 8px;
         border: none;
-        border-radius: 6px;
+        border-radius: 3px;
         background-color: var(--cinza);
         color: var(--branco);
         font-size: 16px;
@@ -883,34 +872,29 @@ img {
         outline: none;
     }
 
+    .div-perfil-inputs {
+        width: 450px;
+        margin: 0 auto; /* <=== Centraliza */
+    }
+
     .div-perfil-btn {
         display: flex;
         justify-content: center;
         gap: 15px;
+        width: 450px;
+        margin: 0 auto; /* <=== Centraliza */
     }
 
-    .perfil-btn,
     .perfil-btn-login {
-        padding: 10px 20px;
+        padding: 10px 0;
+        width: 100%; /* <=== Garante que o botão preencha a div */
         margin-top: 20px;
         margin-bottom: -5px;
-        border-radius: 20px;
+        border-radius: 3px;
         border: none;
         font-weight: bold;
         cursor: pointer;
-    }
 
-    .perfil-btn {
-        background-color: var(--cinza);
-        color: var(--branco);
-    }
-
-    .perfil-btn:hover {
-        background-color: var(--verde);
-        transition: all 0.2s;
-    }
-
-    .perfil-btn-login {
         background-color: var(--verde);
         color: var(--branco);
         text-decoration: none;
@@ -919,33 +903,97 @@ img {
     }
 
     .perfil-btn-login:hover {
-        background-color: var(--cinza);
-        transition: all 0.2s;
+        background-color: var(--verde-escuro);
+        transition: all linear 0.3s;
     }
 
-    /* RESPONSIVO */
+    .div-login-remember {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px !important;
+        width: 450px;
+        margin: 0 auto; /* <=== Centraliza */
+    }
+
+    .div-login-remember-text {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .div-login-remember-checkbox {
+        cursor: pointer;
+        accent-color: var(--cinza-claro);
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+
+    .div-login-increva-se {
+        width: 450px;
+        margin-top: 20px;
+        margin: 20px auto 0 auto; /* <=== Centraliza */
+    }
+
+    .div-login-increva-se-texto {
+        margin-left: 10px;
+    }
+
+    .login-div-imagem {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .login-div-imagem-img {
+        width: 40%;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+
     @media (max-width: 768px) {
         .perfil-container {
             flex-direction: column;
-            gap: 30px;
-            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .login-div-imagem-img{
+            width: 50%;
         }
 
         .perfil-textos {
-            width: 100%;
+            width: 80%;
+            margin: 0 auto; /* <=== Mantém centralizado */
         }
 
         .perfil-subtitulo {
-            width: 100%;
+            width: 95%;
         }
 
         .perfil-logo {
             width: 15%;
-            margin-bottom: 30px;
+        }
+
+        .div-perfil-inputs,
+        .div-login-remember,
+        .div-perfil-btn,
+        .div-login-increva-se {
+            width: 100%;     /* Ajusta para tela menor */
+            max-width: 450px;
+            margin: 0 auto;  /* <=== Centraliza todos */
+        }
+
+        .div-login-increva-se{
+            margin-top: 20px;
         }
     }
-
 }
+
 
 .P-esconder {
     display: flex;
@@ -1002,26 +1050,28 @@ img {
 }
 
 .fotoP:hover {
-  filter: brightness(50%); /* Deixa 15% mais escuro */
+    filter: brightness(50%);
+    /* Deixa 15% mais escuro */
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .icone-editar {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  padding: 8px;
-  font-size: 30px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none; /* evita bloquear clique na imagem */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 8px;
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    /* evita bloquear clique na imagem */
 }
 
 .fotoperfil:hover .icone-editar {
-  opacity: 1;
+    opacity: 1;
 }
 
 .infomarcoes {
