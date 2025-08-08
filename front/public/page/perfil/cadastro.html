@@ -66,26 +66,26 @@
     }
 </style>
 
-    <style>
-        html,
-        body {
-            overflow: hidden !important;
-            height: 100% !important;
-            width: 100% !important;
-            overscroll-behavior: none;
-            touch-action: none;
-            position: fixed;
-        }
+<style>
+    html,
+    body {
+        overflow: hidden !important;
+        height: 100% !important;
+        width: 100% !important;
+        overscroll-behavior: none;
+        touch-action: none;
+        position: fixed;
+    }
 
-        body {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 
-        body::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
+    body::-webkit-scrollbar {
+        display: none;
+    }
+</style>
 
 <body>
     <div class="perfil-esconder">
@@ -113,12 +113,14 @@
 
                     <div class="div-perfil-inputs">
                         <label for="password" class="perfil-titulo-input">Senha</label>
-                        <input type="password" class="perfil-inputs" placeholder="••••" id="password" required minlength="6">
+                        <input type="password" class="perfil-inputs" placeholder="••••" id="password" required
+                            minlength="6">
                     </div>
 
                     <div class="div-perfil-inputs">
                         <label for="password-verify" class="perfil-titulo-input">Confirme sua Senha</label>
-                        <input type="password" class="perfil-inputs" placeholder="••••" id="password-verify" required minlength="6">
+                        <input type="password" class="perfil-inputs" placeholder="••••" id="password-verify" required
+                            minlength="6">
                     </div>
 
                     <div class="div-perfil-btn">
@@ -133,16 +135,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal de erro -->
-    <div id="modal-erro" class="modal">
-        <div class="modal-conteudo">
-            <span class="modal-fechar" id="fechar-modal">&times;</span>
-            <h2>Erro</h2>
-            <p>As senhas não coincidem. Tente novamente.</p>
-        </div>
-    </div>
-
 </body>
 
 <script>
@@ -170,7 +162,7 @@
     });
 
     document.getElementById('form-cadastro').addEventListener('submit', async function (event) {
-        event.preventDefault(); // Evita recarregar a página
+        event.preventDefault();
 
         const nome = document.getElementById('name').value;
         const telefone = document.getElementById('telefone').value;
@@ -178,22 +170,21 @@
         const senha = document.getElementById('password').value;
         const confirmarSenha = document.getElementById('password-verify').value;
 
-        // Verificação de senha
         if (senha !== confirmarSenha) {
             document.getElementById('modal-erro').style.display = 'block';
             return;
         }
 
-        // Objeto do novo usuário
+        // Atenção aqui: campo 'password' conforme backend
         const novoUsuario = {
             nome,
             telefone,
             email,
-            senha
+            password: senha
         };
 
         try {
-            const resposta = await fetch('http://localhost:3000/usuario', {
+            const resposta = await fetch('http://localhost:3000/usuarios/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -203,27 +194,16 @@
 
             if (resposta.ok) {
                 alert('Cadastro realizado com sucesso!');
-                window.location.href = '/login'; // redireciona para login
+                window.location.href = '/login'; // ou outra página que queira
             } else {
-                alert('Erro ao cadastrar. Tente novamente.');
+                const erroData = await resposta.json();
+                alert('Erro ao cadastrar: ' + (erroData.error || 'Tente novamente.'));
             }
         } catch (erro) {
             console.error('Erro na requisição:', erro);
             alert('Erro ao conectar com o servidor.');
         }
     });
-
-    // Fechar modal
-    document.getElementById('fechar-modal').onclick = function () {
-        document.getElementById('modal-erro').style.display = 'none';
-    };
-
-    window.onclick = function (event) {
-        const modal = document.getElementById('modal-erro');
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    };
 </script>
 
 </html>

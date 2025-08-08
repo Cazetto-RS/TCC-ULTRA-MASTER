@@ -130,60 +130,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal de erro -->
-    <div id="modal-login-erro" class="modal">
-        <div class="modal-conteudo">
-            <span class="modal-fechar" id="fechar-modal-login-erro">&times;</span>
-            <h2>Erro</h2>
-            <p>Usuário ou senha inválidos. Tente novamente.</p>
-        </div>
-    </div>
-
-    <!-- Modal de sucesso -->
-    <div id="modal-login-sucesso" class="modal">
-        <div class="modal-conteudo">
-            <span class="modal-fechar" id="fechar-modal-login-sucesso">&times;</span>
-            <h2>Bem-vindo!</h2>
-            <p>Login realizado com sucesso.</p>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById('btn-login').onclick = async function (e) {
-            e.preventDefault();
-
-            const identificador = document.getElementById('identificador').value.trim();
-            const senha = document.getElementById('senha').value;
-
-            try {
-                const response = await fetch("http://localhost:3000/usuario");
-                const usuarios = await response.json();
-
-                const usuarioEncontrado = usuarios.find(user =>
-                    (user.email === identificador || user.telefone === identificador) &&
-                    user.senha === senha
-                );
-
-                if (usuarioEncontrado) {
-                    document.getElementById('modal-login-sucesso').style.display = 'block';
-                    setTimeout(() => {
-                        document.getElementById('modal-login-sucesso').style.display = 'none';
-                        window.location.href = "/";
-                    }, 2000);
-                } else {
-                    document.getElementById('modal-login-erro').style.display = 'block';
-                    setTimeout(() => {
-                        document.getElementById('modal-login-erro').style.display = 'none';
-                    }, 3000);
-                }
-
-            } catch (error) {
-                console.error("Erro ao buscar usuários:", error);
-                alert("Erro ao conectar ao servidor.");
-            }
-        };
-    </script>
 </body>
 
 </html>
